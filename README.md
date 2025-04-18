@@ -1,59 +1,79 @@
-#  📉 Stock Market Crash Analysis with Python
+# 📉 Stock Market Crash Analysis
 
-This project is a comprehensive stock market crash analysis tool that uses historical Sensex data and synthetic data to identify, visualize, and understand major market downturns. It combines data processing, drawdown analysis, crash clustering, and synthetic forecasting to give insights into past and potential future crashes.
-
-## 📊 Project Workflow & Code Explanation
-
-### 1. **Importing Libraries**
-Used `pandas`, `numpy`, and `plotly` for data manipulation, calculation, and interactive visualizations.
-
-### 2. **Loading the Data**
-The CSV file is loaded using `pandas.read_csv()`, sorted by date, and indexed by the `Date` column for time-series analysis.
-
-### 3. **Data Cleaning**
-- Converts `Date` to datetime.
-- Checks for and handles missing values.
-
-### 4. **Daily Returns and Crash Detection**
-- Calculates daily percentage return using `.pct_change()`.
-- Flags a crash if the daily return is less than or equal to -5%.
-- Plots closing prices and highlights crash days with red dots.
-
-### 5. **Drawdown Analysis**
-- Calculates drawdown as the percentage decline from the all-time high using `.cummax()`.
-- A drawdown greater than 20% is considered a major crash.
-- Interactive plot shows drawdown over time with a threshold line.
-
-### 6. **Crash Clustering**
-- Groups crash days into clusters if they occur within 3 days of each other.
-- Displays the start and end dates of each cluster.
-- Plots zoomed-in analysis of the first detected crash cluster.
-
-### 7. **Historical Crash Case Studies**
-Three major crashes are explored in detail:
-- 1997 Crash
-- 2008 Financial Crisis
-- 2020 COVID-19 Crash
-
-Each crash is visualized through:
-- Closing price with crash period shaded
-- Daily returns during the crash
-
-### 8. **Synthetic Crash Forecasting (2025 Simulation)**
-- Simulates 250 trading days in 2025 using `numpy`.
-- Introduces artificial stable, crash, and recovery periods.
-- Calculates 10-day rolling mean and volatility.
-- Flags early warnings when:
-  - Rolling mean return < -0.5%
-  - Volatility > 2%
-- Visualizes price with early warnings marked.
-
-## 🛍️ Summary of Insights
-
-- **Daily Crashes**: Several points in history showed -5% or more daily declines.
-- **Drawdowns**: Major drawdowns beyond -20% identified big market events.
-- **Clustering**: Many crashes grouped into clusters, highlighting multi-day panic events.
-- **Case Studies**: Visual analysis of the 1997, 2008, and 2020 crashes shows steep and prolonged declines.
-- **2025 Simulation**: Showed how early warning indicators can signal upcoming crashes using volatility and return drops.
+This project performs an in-depth analysis of stock market crashes using historical Sensex data. It includes identification of daily crashes, drawdown-based crashes, visualization of major market declines, and synthetic modeling for early warning signals.
 
 ---
+
+## 📁 Dataset
+- File used: `cleaned_sensex.csv`
+- Contains historical Sensex data with date and closing prices.
+
+---
+
+## 🔍 Key Features & Workflow
+
+### 1. **Preprocessing**
+- Read data with `pandas`.
+- Convert `Date` column to datetime format.
+- Sort by date and set as index.
+
+### 2. **Daily Crash Detection**
+- Calculate daily return %.
+- Identify crash days where drop > 5%.
+- Visualize with red markers.
+
+### 3. **Drawdown Analysis**
+- Calculate cumulative max.
+- Compute % drawdown from peak.
+- Mark drawdowns below -20%.
+- Visualize drawdowns over time.
+
+### 4. **Crash Cluster Detection**
+- Group consecutive drawdown days within 3-day gaps.
+- Print identified clusters with start-end dates.
+- Visualize zoomed-in view for selected cluster.
+
+### 5. **Major Historical Crashes**
+Visualizations for:
+- 📉 1997 Crash
+- 📉 2008-09 Global Financial Crisis
+- 📉 2020 COVID Crash
+
+Each includes:
+- Closing prices
+- Daily returns
+
+### 6. **Synthetic Early Warning System (2025)**
+- Create synthetic Sensex data for 2025 with a simulated crash.
+- Compute 10-day rolling mean and volatility.
+- Flag early warnings where:
+  - Mean return < -0.5%
+  - Volatility > 2%
+
+### 7. **📊 Monthly Visualization of 2025**
+- Each of the 12 months from January to December 2025 is analyzed separately.
+- For every month, a dedicated graph is created to visualize the closing price trends.
+- Red dots are used to clearly mark early warning signals detected within that month.
+- This approach gives a more detailed view of how market behavior evolves throughout the year and helps identify patterns specific to individual months.
+
+---
+
+## 📦 Libraries Used
+- pandas
+- numpy
+- plotly
+- calendar
+
+---
+
+## 📈 Summary
+This project allows you to:
+- Detect both short-term (daily) and long-term (drawdown) crashes.
+- Analyze real market behavior across historical and simulated data.
+- Generate early warning signals based on market behavior.
+- Visualize everything using interactive Plotly charts, including monthly-level insights for 2025.
+
+> Great for financial analysts, students, and data scientists interested in market behavior.
+
+---
+
